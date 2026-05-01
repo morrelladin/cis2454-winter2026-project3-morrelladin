@@ -3,24 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/index.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/models/database.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/models/course.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/views/students.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/students.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/views/nav.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/models/enrollment.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/models/faculty.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/models/section.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/models/students.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/views/faculty.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/views/section.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/views/enrollment.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/views/course.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/course.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/faculty.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/enrollment.php</file>
-            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project2-morrelladin/section.php</file>
+            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project3-morrelladin/course.php</file>
+            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project3-morrelladin/models/items.php</file>
+            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project3-morrelladin/models/database.php</file>
+            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project3-morrelladin/models/stores.php</file>
+            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project3-morrelladin/enrollment.php</file>
+            <file>file:/C:/Users/adinm/Documents/GitHub/cis2454-winter2026-project3-morrelladin/index.php</file>
         </group>
     </open-files>
 </project-private>

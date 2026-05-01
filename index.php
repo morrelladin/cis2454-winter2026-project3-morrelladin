@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        <?php include ('views/nav.php'); ?>
+        
         
     </body>
 </html>
