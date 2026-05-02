@@ -61,7 +61,37 @@ class Item {
     }
 }
 
-function list_items(){
+function list_items_from_store($store_id) {
+    global $database;
+    
+    $query = "SELECT * FROM items WHERE store_id = :store_id";
+    
+    $statement = $database->prepare($query);
+    
+    $statement->bindValue(':store_id', $store_id);
+    
+    $statement->execute();
+    
+    $rows = $statement->fetchAll();
+    
+    $statement->closeCursor();
+    
+    $items = [];
+    foreach ($rows as $row) {
+        $items[] = new Item(
+            $row['id'],
+            $row['store_id'],
+            $row['name'],
+            $row['quantity'],
+            $row['checked'],
+            $row['created_at']
+        );
+    }
+
+    return $items;
+}
+
+function list_item(){
        global $database;
        
        $query = 'SELECT id, store_id, name, quantity, checked, created_at FROM items';
@@ -84,7 +114,7 @@ function list_items(){
        return $items_array;
 }
 
-function insert_items($item){
+function insert_item($item){
     global $database;
     
     $query = "INSERT INTO items (store_id, name, quantity, checked) "
@@ -101,7 +131,7 @@ function insert_items($item){
     $statement->closeCursor();
 }
 
-function update_items($item){
+function update_item($item){
     global $database;
     
     $query = "UPDATE items SET store_id = :store_id, name = :name, quantity = :quantity, checked = :checked "
@@ -119,7 +149,7 @@ function update_items($item){
     $statement->closeCursor();
 }
 
-function delete_items($item){
+function delete_item($item){
     global $database;
     
     $query = "DELETE FROM items "
