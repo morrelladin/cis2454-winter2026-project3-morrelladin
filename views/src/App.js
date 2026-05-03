@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     const [stores, setStores] = useState([]);
@@ -129,26 +130,28 @@ function App() {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
-            <h1>Stores</h1>
+        <div className="container mt-4">
+            <h1 className="mb-4">Stores</h1>
+            <div className="d-flex gap-2 mb-3">
+                <input
+                    className="form-control"
+                    type="text"
+                    placeholder="New store name"
+                    value={newStoreName}
+                    onChange={(e) => setNewStoreName(e.target.value)}
+                />
+                <button onClick={createStore} className="btn btn-primary">Add Store</button>
+            </div>
 
-            <input
-                type="text"
-                placeholder="New store name"
-                value={newStoreName}
-                onChange={(e) => setNewStoreName(e.target.value)}
-            />
-            <button onClick={createStore}>Add Store</button>
-
-            <ul>
+            <ul className="list-group">
                 {stores.map(store => (
-                    <li key={store.id}>
+                    <li key={store.id} className="list-group-item d-flex justify-content-between align-items-center">
                         <strong onClick={() => loadItems(store.id)} style={{ cursor: 'pointer' }}>
                             {store.name}
                         </strong>
 
                         {' '}
-                        <button onClick={() => deleteStore(store.id)}>
+                        <button onClick={() => deleteStore(store.id)} className="btn btn-sm btn-danger">
                             Delete
                         </button>
                     </li>
@@ -156,35 +159,39 @@ function App() {
             </ul>
 
             {selectedStoreId && (
-                <div>
+                <div className="mt-4">
                     <h1>Items</h1>
 
                     <input
+                        className="form-control"
                         placeholder="Item name"
                         value={newItemName}
                         onChange={(e) => setNewItemName(e.target.value)}
                     />
 
                     <input
+                        className="form-control"
                         type="number"
                         value={newItemQty}
                         onChange={(e) => setNewItemQty(Number(e.target.value))}
                     />
 
-                    <button onClick={createItem}>Add Item</button>
+                    <button onClick={createItem} className="btn btn-primary">Add Item</button>
 
-                    <ul>
+                    <ul className="list-group">
                         {items.map(item => (
-                            <li key={item.id}>
+                            <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
                                 {editingItemId === item.id ? (
-                                    <div>
+                                    <div className="d-flex gap-2 w-100">
                                         <input
+                                            className="form-control"
                                             value={editName}
                                             onChange={(e) => setEditName(e.target.value)}
                                             placeholder="Name"
                                         />
 
                                         <input
+                                            className="form-control"
                                             type="number"
                                             value={editQuantity}
                                             onChange={(e) => setEditQuantity(Number(e.target.value))}
@@ -200,20 +207,21 @@ function App() {
                                             />
                                         </label>
 
-                                        <button onClick={() => saveEditItem(item.id)}>Save</button>
-                                        <button onClick={cancelEdit}>Cancel</button>
+                                        <button onClick={() => saveEditItem(item.id)} className="btn btn-success btn-sm">Save</button>
+                                        
+                                        <button onClick={cancelEdit} className="btn btn-secondary btn-sm">Cancel</button>
                                     </div>
                                 ) : (
-                                    <div>
+                                    <div className="d-flex gap-2">
                                         <span onClick={() => toggleItem(item)} style={{ cursor: 'pointer' }}>
                                             {item.checked ? '✔ ' : ''}{item.name} (Qty: {item.quantity})
                                         </span>
 
-                                        <button onClick={() => startEditItem(item)} style={{ marginLeft: '10px' }}>
+                                        <button className="btn btn-sm btn-warning" onClick={() => startEditItem(item)} style={{ marginLeft: '10px' }}>
                                             Edit
                                         </button>
 
-                                        <button onClick={() => deleteItem(item.id)}>
+                                        <button className="btn btn-sm btn-danger" onClick={() => deleteItem(item.id)}>
                                             Delete
                                         </button>
                                     </div>

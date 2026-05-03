@@ -148,7 +148,8 @@ if($resource === 'stores' && $sub === null){
     }
     
 // api/items/{id}
-} else if($resource === 'items'){
+} else if ($resource === 'items') {
+
     if ($method === 'DELETE') {
 
         if ($id === null){
@@ -162,22 +163,32 @@ if($resource === 'stores' && $sub === null){
 
         echo json_encode(['message' => 'Item deleted']);
         exit;
+    }
 
-    } else if ($method === 'PUT') {
+    if ($method === 'PUT') {
 
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if ($id === null || !isset($data['checked']) || !isset($data['name']) || !isset($data['quantity'])){
+        if (!$data) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Invalid JSON']);
+            exit;
+        }
+
+        $name = $data['name'] ?? '';
+        $quantity = (int)($data['quantity'] ?? 0);
+        $checked = (int)($data['checked'] ?? 0);
+
+        if ($id === null || $name === '') {
             http_response_code(400);
             echo json_encode(['error' => 'Missing required fields']);
             exit;
         }
 
-        $item = new Item($id, 0, $data['name'], $data['quantity'], $data['checked'], null);
+        $item = new Item($id, 0, $name, $quantity, $checked, null);
         update_item($item);
 
         echo json_encode(['message' => 'Item updated']);
         exit;
-
     }
 }

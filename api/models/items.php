@@ -134,12 +134,11 @@ function insert_item($item){
 function update_item($item){
     global $database;
     
-    $query = "UPDATE items SET store_id = :store_id, name = :name, quantity = :quantity, checked = :checked "
+    $query = "UPDATE items SET name = :name, quantity = :quantity, checked = :checked "
             . " WHERE id = :id";
     
     $statement = $database->prepare($query);
     $statement->bindValue(":id", $item->get_id());
-    $statement->bindValue(":store_id", $item->get_store_id());
     $statement->bindValue(":name", $item->get_name());
     $statement->bindValue(":quantity", $item->get_quantity());
     $statement->bindValue(":checked", $item->get_checked());
