@@ -1,29 +1,35 @@
 <?php
 
+header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type");
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 require_once 'models/database.php';
 require_once 'models/stores.php';
+require_once 'models/items.php';
 
 $request = $_SERVER['REQUEST_URI'];
 $path = parse_url($request, PHP_URL_PATH);
 
 $segments = explode('/', trim($path, '/'));
 
-$resource = $segments[1];
-$id = null;
-$sub = null;
+$apiIndex = array_search('api', $segments);
 
-if (isset($segments[2]) && is_numeric($segments[2])) {
-    $id = (int)$segments[2];
-    
-} else if (isset($segments[3])) {
-    $sub = $segments[3];
-}
+$resource = $segments[$apiIndex + 1] ?? null;
 
-header('Content-Type: application/json');
+$id = (isset($segments[$apiIndex + 2]) && is_numeric($segments[$apiIndex + 2]))
+    ? (int)$segments[$apiIndex + 2]
+    : null;
 
+$sub = $segments[$apiIndex + 3] ?? null;
 $method = $_SERVER['REQUEST_METHOD'];
   
-
 // api/stores
 
 if($resource === 'stores' && $sub === null){
